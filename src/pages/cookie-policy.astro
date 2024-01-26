@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FaqSection from "../components/home/FaqSection.astro";
+import DiscountSection from "../components/home/DiscountSection.astro";
+import CallNow from "../components/CallNow.astro";
+import ContactUs from "../components/ContactUs.astro";
+import HeroAbout from "../components/about/HeroAbout.astro";
+import Cookie from "../components/CookiePolicy.astro";
+---
+
+<Layout
+    title="Cookie Policy | The Professionals Window Cleaning"
+    description="Looking for a Professional Window Cleaning or Eavestrough Cleaning Service? Call us The Professionals at 416-464-5542."
+>
+    <main>
+        <HeroAbout />
+        <CallNow />
+        <Cookie />
+        <ContactUs />
+        <FaqSection />
+        <DiscountSection />
+    </main>
+</Layout>
