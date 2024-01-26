@@ -17,6 +17,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.2.1",
     "astro-compress": "^2.2.8",
+    "astro-critters": "^2.0.11",
     "astro-robots-txt": "^1.0.0",
     "prettier": "^3.2.4",
     "prettier-plugin-astro": "^0.13.0",
