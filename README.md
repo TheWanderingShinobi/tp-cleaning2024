@@ -1,48 +1,36 @@
-# Astro Starter Kit: Minimal
+# The Professionals Window and Eaves Cleaning Ltd.
 
-```sh
-npm create astro@latest -- --template minimal
-```
+![The Professionals Logo](/public/scarborough-eavestrough-cleaning-logo.png)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+At The Professionals Window and Eaves Cleaning Ltd., we pride ourselves on providing high-quality cleaning services that our clients can trust. Our slogan is '**When you want a job done right, call The Professionals**'. We take this motto to heart and strive to exceed our clients' expectations with every job we undertake. If you're looking for reliable, professional cleaning services, look no further than The Professionals.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## About Us
 
-## 🚀 Project Structure
+We are dedicated to delivering exceptional cleaning services for both residential and commercial properties. Our team is highly trained, experienced, and committed to ensuring your windows and eaves are sparkling clean.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Services Offered
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- Window Cleaning
+- Eaves Cleaning
+- Eavestrough Cleaning
+- Gutter Cleaning
+- Pressure Washing
+- Exterior Surface Cleaning
+- And more!
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Why Choose Us?
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Professionalism**: We conduct ourselves with the utmost professionalism in every interaction.
+- **Quality Assurance**: Our team is dedicated to delivering top-notch cleaning services tailored to your needs.
+- **Reliability**: You can count on us to be punctual and reliable, ensuring your satisfaction with our services.
+- **Customer Satisfaction**: Your satisfaction is our priority. We go above and beyond to exceed your expectations.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Contact Us
 
-## 🧞 Commands
+Ready to experience the difference with The Professionals? Get in touch with us today to learn more about our services and to schedule your next cleaning appointment.
 
-All commands are run from the root of the project, from a terminal:
+- **Phone**: 416-464-5542
+- **Email**: admin@theprofessionalswindowcleaning.com
+- **Website**: https://theprofessionalswindowcleaning.com
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# tp-cleaning2024
+Don't settle for mediocre cleaning services. Choose The Professionals for a job done right!

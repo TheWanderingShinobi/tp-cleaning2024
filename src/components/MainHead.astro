@@ -1,5 +1,5 @@
 ---
-import Seo from '../components/Seo.astro'
+import Seo from '@components/Seo.astro'
 
 const { title, description, image, robots } = Astro.props
 ---
@@ -19,11 +19,7 @@ const { title, description, image, robots } = Astro.props
 
 	<Seo {title} {description} url={Astro.url} {image} {robots} />
 
-	<link rel="preconnect" href="https://fonts.bunny.net" />
-	<link href="https://fonts.bunny.net/css?family=nunito:200,400,800" rel="stylesheet" />
-
 	<script
-		type="text/partytown"
 		async
 		defer
 		data-website-id="ba440270-9b65-4196-a815-8d57913f5815"
