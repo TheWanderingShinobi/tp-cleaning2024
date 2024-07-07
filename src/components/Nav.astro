@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import myLogo from "@assets/logo.opti.webp";
+
+const navItems = [
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' },
+  { name: 'Projects', url: '/projects' },
+  { name: 'About', url: '/about' },
+  { name: 'Contact', url: '/contact' },
+];
+---
+
+<nav class="fixed top-0 z-10 w-full bg-primary">
+  <div class="container flex items-center justify-between py-5 mx-auto">
+    <div class="flex items-center gap-2">
+      <a href="/">
+        <Image 
+          src={myLogo} 
+          format="avif" 
+          width={160} 
+          height={112} 
+          alt="Company logo" 
+          class="w-auto h-14"
+        />
+      </a>
+      <span class="hidden py-8 text-2xl font-bold text-white md:block">
+        The Professionals Window Cleaning.
+      </span>
+    </div>
+
+    <ul class="hidden space-x-10 text-sm font-bold uppercase md:flex text-base-100 dark:text-gray-100">
+      {navItems.map(item => (
+        <li>
+          <a href={item.url} class="hover:text-[#3296FF] transition-colors">
+            {item.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <button id="hamburger" class="z-20 space-y-1 cursor-pointer md:hidden" aria-label="Toggle menu">
+      {[...Array(3)].map(() => (
+        <div class="w-6 h-0.5 bg-white"></div>
+      ))}
+    </button>
+
+    <ul id="menu" class="absolute top-0 left-0 hidden w-full p-10 space-y-10 text-center text-accent bg-primary rounded-b-3xl">
+      {navItems.map(item => (
+        <li>
+          <a href={item.url} class="hover:text-[#3296FF] transition-colors">
+            {item.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+  
+    hamburger?.addEventListener('click', () => {
+      menu?.classList.toggle('hidden');
+    });
+  </script>
