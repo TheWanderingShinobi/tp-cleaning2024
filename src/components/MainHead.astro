@@ -1,8 +1,22 @@
 ---
 import Seo from '@components/Seo.astro'
+import siteData from "../data/siteData.json";
 
-const { title, description, image, robots } = Astro.props
+const { 
+  title = siteData.title, 
+  description = siteData.description, 
+  image, 
+  robots = "index,follow" 
+} = Astro.props;
 ---
+
+<script 
+  async 
+  defer 
+  data-website-id="ba440270-9b65-4196-a815-8d57913f5815"
+  src="https://tpstat.selfhostlab.com/umami.js"
+>
+</script>
 
 <head>
 	<meta charset="utf-8" />
@@ -11,17 +25,21 @@ const { title, description, image, robots } = Astro.props
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 	<link rel="manifest" href="/site.webmanifest" />
 	<link rel="sitemap" href="/sitemap-index.xml" />
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<meta name="generator" content={Astro.generator} />
 	<title>{title}</title>
-	<meta name="robots" content="index,follow" />
 	<meta name="description" content={description} />
-
+	<meta name="robots" content={robots} />
+	<meta name="theme-color" content="mytheme">
+	<meta property="og:locale" content="en_US">
+	<link rel="preconnect" href="https://tpstat.selfhostlab.com">
 	<Seo {title} {description} url={Astro.url} {image} {robots} />
-
-	<script
-		async
-		defer
-		data-website-id="ba440270-9b65-4196-a815-8d57913f5815"
-		src="https://tpstat.selfhostlab.com/umami.js"></script>
+	<script type="application/ld+json">
+	  {
+	    "@context": "https://schema.org",
+	    "@type": "WebSite",
+	    "name": "The Professionals Window and Eaves Cleaning Ltd.",
+	    "url": "https://theprofessionalswindowcleaning.com/"
+	  }
+	</script>
 </head>

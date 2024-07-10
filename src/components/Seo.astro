@@ -1,41 +1,40 @@
 ---
 import siteData from "../data/siteData.json";
-
 const {
     title,
     description,
     url = Astro.url,
     image,
     robots,
+    ogType = 'website'
 } = Astro.props;
----
 
+const imageUrl = image?.src || siteData.image.src;
+const imageAlt = image?.alt || siteData.image.alt;
+---
 <!-- SEO -->
 <link rel="canonical" href={url} />
+<meta name="robots" content={robots} />
 
 <!-- Open Graph -->
-<meta
-    property="og:site_name"
-    content="The Professional Window and Eave Cleaning Ltd."
-/>
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:site_name" content="The Professional Window and Eave Cleaning Ltd." />
+<meta property="og:title" content={title ?? siteData.title} />
+<meta property="og:description" content={description ?? siteData.description} />
 <meta property="og:url" content={url} />
-<meta property="og:image" content={image?.src || siteData.image.src} />
-<meta property="og:image:url" content={image?.src || siteData.image.src} />
-<meta
-    property="og:image:secure_url"
-    content={image?.src || siteData.image.src}
-/>
+<meta property="og:type" content={ogType} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:url" content={imageUrl} />
+<meta property="og:image:secure_url" content={imageUrl} />
 <meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="800" />
-<meta property="og:image:height" content="600" />
-<meta property="og:image:alt" content={image?.alt || siteData.image.alt} />
+<meta property="og:image:width" content={image?.width || siteData.image.width} />
+<meta property="og:image:height" content={image?.height || siteData.image.height} />
+<meta property="og:image:alt" content={imageAlt} />
 
 <!-- Twitter -->
-<meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content={image?.src || siteData.image.src} />
-<meta name="twitter:image:alt" content={title} />
+<meta name="twitter:site" content="@TOWindowandEave" />
+<meta name="twitter:title" content={title ?? siteData.title} />
+<meta name="twitter:description" content={description ?? siteData.description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={imageAlt} />
 <meta name="twitter:domain" content="https://twitter.com/TOWindowandEave" />
