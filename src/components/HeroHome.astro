@@ -1,12 +1,22 @@
 <section class="mt-32">
   <div
-    class="relative overflow-hidden bg-no-repeat bg-cover"
-    style="
-          background-position: 50%;
-          background-image: url('/toronto-window-cleaning-bg.webp');
-          height: 500px;
-        "
+    class="relative overflow-hidden bg-no-repeat bg-cover h-[500px]"
+    style="background-position: 50% center;"
   >
+    <!-- Preload the hero image -->
+    <link rel="preload" href="/toronto-window-cleaning-bg.webp" as="image" />
+    
+    <!-- Use an actual image tag instead of a background image for better LCP -->
+    <img 
+      src="/toronto-window-cleaning-bg.webp" 
+      alt="Toronto window cleaning background" 
+      class="absolute inset-0 w-full h-full object-cover"
+      width="1920" 
+      height="1080"
+      fetchpriority="high"
+      loading="eager"
+    />
+    
     <div
       class="absolute top-0 bottom-0 left-0 right-0 w-full h-full overflow-hidden bg-fixed"
       style="background-color: rgba(0, 0, 0, 0.75)"
@@ -21,7 +31,6 @@
           >
             Rejuvenate the look of <br /><span>your home today</span>
           </h1>
-
           <a
             role="button"
             href="contact"
