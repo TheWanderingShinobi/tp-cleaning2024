@@ -43,21 +43,24 @@ const {
 
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-626366068"></script>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-626366068"></script>
 	<script>
 		window.dataLayer = window.dataLayer || []
 		function gtag() {
 			dataLayer.push(arguments)
 		}
 		gtag('js', new Date())
-		gtag('config', 'AW-626366068', {
-			transport_type: 'beacon',
-			send_page_view: true
-		})
+		gtag('config', 'AW-626366068')
 	</script>
 	<!-- Google tag (gtag.js) event -->
 	<script>
 		gtag('event', 'contact_us', {
 			// <event_parameters>
 		})
+	</script>
+	<!-- Event snippet for Contact conversion page -->
+	<script>
+		gtag('event', 'conversion', { send_to: 'AW-626366068/rGsLCIW8m7IaEPSs1qoC' })
 	</script>
 </head>
