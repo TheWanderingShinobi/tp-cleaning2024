@@ -38,10 +38,13 @@ import imgWindow from '@assets/toronto-window-cleaning.webp'
 						<p class="mb-4 text-lg font-semibold">Eavestrough Cleaning</p>
 						<div class="mb-3 mt-3 flex justify-center rounded-2xl bg-base-100">
 							<Image
-								class="h-auto max-w-full rounded-lg p-3"
+								class="h-auto w-full rounded-lg p-3"
 								src={imgEaves}
-								format="avif"
 								alt="before and after eavestrough cleaning"
+								format="avif"
+								quality={80}
+								widths={[340, 680, 1080]}
+								sizes="(max-width: 1023px) 90vw, 30vw"
 							/>
 						</div>
 						<p class="text-secondary">
@@ -88,10 +91,13 @@ import imgWindow from '@assets/toronto-window-cleaning.webp'
 						<p class="mb-4 text-lg font-semibold">Power Washing</p>
 						<div class="mb-3 mt-3 flex justify-center rounded-2xl bg-base-100">
 							<Image
-								class="h-auto max-w-full rounded-lg p-3"
+								class="h-auto w-full rounded-lg p-3"
 								src={imgPower}
-								format="avif"
 								alt="before and after power washing"
+								format="avif"
+								quality={80}
+								widths={[340, 680, 1080]}
+								sizes="(max-width: 1023px) 90vw, 30vw"
 							/>
 						</div>
 						<p class="text-secondary">
@@ -136,25 +142,29 @@ import imgWindow from '@assets/toronto-window-cleaning.webp'
 						<p class="mb-4 text-lg font-semibold">Window Cleaning</p>
 						<div class="mb-3 mt-3 flex justify-center rounded-2xl bg-base-100">
 							<Image
-								class="h-auto max-w-full rounded-lg p-3"
+								class="h-auto w-full rounded-lg p-3"
 								src={imgWindow}
-								format="avif"
 								alt="before and after window cleaning"
+								format="avif"
+								quality={80}
+								widths={[340, 680, 1080]}
+								sizes="(max-width: 1023px) 90vw, 30vw"
 							/>
 						</div>
-					</div>
-					<p class="text-secondary">
-						Looking for a reliable and affordable window cleaning service? Look no further than
-						ours! We offer a wide range of services, including regular window cleaning and
-						spring/fall window cleaning. We also offer special discounts for job referrals!. Give us
-						a call today to schedule your free consultation.
-					</p>
-					<div class="pt-4">
-						<a
-							role="button"
-							href="window-cleaning"
-							class="btn btn-secondary btn-outline btn-wide mb-2 uppercase">Window Cleaning</a
-						>
+
+						<p class="text-secondary">
+							Looking for a reliable and affordable window cleaning service? Look no further than
+							ours! We offer a wide range of services, including regular window cleaning and
+							spring/fall window cleaning. We also offer special discounts for job referrals!. Give
+							us a call today to schedule your free consultation.
+						</p>
+						<div class="pt-4">
+							<a
+								role="button"
+								href="window-cleaning"
+								class="btn btn-secondary btn-outline btn-wide mb-2 uppercase">Window Cleaning</a
+							>
+						</div>
 					</div>
 				</div>
 			</div>
