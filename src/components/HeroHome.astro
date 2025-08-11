@@ -9,23 +9,11 @@ import heroImage from '../assets/toronto-window-cleaning-bg.webp'
 		class="relative h-[500px] overflow-hidden bg-cover bg-no-repeat"
 		style="background-position: 50% center;"
 	>
-		{
-			/* 2. This is the corrected <Image> component.
-      - We add `width` and `height` of the ORIGINAL source image.
-      - We add `widths` to create responsive versions.
-      - We add `sizes="100vw"` because it's a full-width hero.
-      - `fetchpriority="high"` remains to tell the browser to load it ASAP.
-    */
-		}
 		<Image
 			src={heroImage}
 			alt="Toronto window cleaning background"
 			class="absolute inset-0 h-full w-full object-cover"
-			width={844}
-			height={1024}
-			widths={[480, 844, 1200]}
-			sizes="100vw"
-			quality={85}
+			quality={80}
 			fetchpriority="high"
 		/>
 
