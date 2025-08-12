@@ -1,24 +1,32 @@
-HeroHome.astro:
+---
+// 1. Import the Image component and your image file
+import { Image } from 'astro:assets'
+import heroImage from '../assets/toronto-window-cleaning-bg.webp'
+---
 
 <section class="mt-32">
 	<div
 		class="relative h-[500px] overflow-hidden bg-cover bg-no-repeat"
 		style="background-position: 50% center;"
 	>
-		<!-- Preload the hero image -->
-
-		<link rel="preload" href="/toronto-window-cleaning-bg.webp" as="image" />
-
-		<!-- Use an actual image tag instead of a background image for better LCP -->
-
-		<img
-			src="/toronto-window-cleaning-bg.webp"
+		{
+			/* 2. This is the corrected <Image> component.
+      - We add `width` and `height` of the ORIGINAL source image.
+      - We add `widths` to create responsive versions.
+      - We add `sizes="100vw"` because it's a full-width hero.
+      - `fetchpriority="high"` remains to tell the browser to load it ASAP.
+    */
+		}
+		<Image
+			src={heroImage}
 			alt="Toronto window cleaning background"
 			class="absolute inset-0 h-full w-full object-cover"
-			width="1920"
-			height="1080"
+			width={844}
+			height={1024}
+			widths={[480, 844, 1200]}
+			sizes="100vw"
+			quality={85}
 			fetchpriority="high"
-			loading="eager"
 		/>
 
 		<div
@@ -30,11 +38,9 @@ HeroHome.astro:
 					<h3 class="pb-4 text-xl text-accent">
 						Quality Service • Value for your money • Affordable Price
 					</h3>
-
 					<h1 class="mb-12 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl">
 						Rejuvenate the look of <br /><span>your home today</span>
 					</h1>
-
 					<a role="button" href="contact" class="btn btn-accent btn-outline btn-lg">Get Started</a>
 				</div>
 			</div>
