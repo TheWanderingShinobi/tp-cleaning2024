@@ -1,20 +1,24 @@
----
-// 1. Import the Image component and your image file
-import { Image } from 'astro:assets'
-import heroImage from '../assets/toronto-window-cleaning-bg.webp'
----
+HeroHome.astro:
 
 <section class="mt-32">
 	<div
 		class="relative h-[500px] overflow-hidden bg-cover bg-no-repeat"
 		style="background-position: 50% center;"
 	>
-		<Image
-			src={heroImage}
+		<!-- Preload the hero image -->
+
+		<link rel="preload" href="/toronto-window-cleaning-bg.webp" as="image" />
+
+		<!-- Use an actual image tag instead of a background image for better LCP -->
+
+		<img
+			src="/toronto-window-cleaning-bg.webp"
 			alt="Toronto window cleaning background"
 			class="absolute inset-0 h-full w-full object-cover"
-			quality={80}
+			width="1920"
+			height="1080"
 			fetchpriority="high"
+			loading="eager"
 		/>
 
 		<div
@@ -26,9 +30,11 @@ import heroImage from '../assets/toronto-window-cleaning-bg.webp'
 					<h3 class="pb-4 text-xl text-accent">
 						Quality Service • Value for your money • Affordable Price
 					</h3>
+
 					<h1 class="mb-12 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl">
 						Rejuvenate the look of <br /><span>your home today</span>
 					</h1>
+
 					<a role="button" href="contact" class="btn btn-accent btn-outline btn-lg">Get Started</a>
 				</div>
 			</div>
