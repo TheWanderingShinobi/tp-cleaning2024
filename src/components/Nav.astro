@@ -24,8 +24,8 @@ const navItems = [
           class="w-auto h-14"
         />
       </a>
-      <span class="hidden py-8 text-2xl font-bold text-white md:block">
-        The Professionals Window Cleaning.
+      <span class="hidden py-4 text-xl font-bold text-white md:block whitespace-nowrap">
+        The Professionals Window &amp; Eavestrough
       </span>
     </div>
 
@@ -39,13 +39,16 @@ const navItems = [
       ))}
     </ul>
 
-    <button id="hamburger" class="z-20 space-y-1 cursor-pointer md:hidden" aria-label="Toggle menu">
-      {[...Array(3)].map(() => (
-        <div class="w-6 h-0.5 bg-white"></div>
-      ))}
+    <button id="hamburger" class="z-20 cursor-pointer md:hidden" aria-label="Toggle menu">
+      <div class="space-y-1.5">
+        <div id="bar1" class="w-6 h-0.5 bg-white transition-transform"></div>
+        <div id="bar2" class="w-6 h-0.5 bg-white"></div>
+        <div id="bar3" class="w-6 h-0.5 bg-white transition-transform"></div>
+      </div>
     </button>
 
-    <ul id="menu" class="absolute top-0 left-0 hidden w-full p-10 space-y-10 text-center text-accent bg-primary rounded-b-3xl">
+    <ul id="menu" class="fixed top-0 left-0 hidden w-full min-h-screen p-10 pt-24 space-y-8 text-xl font-bold text-center text-accent bg-primary z-10">
+      <li><button id="close-menu" class="absolute top-5 right-5 text-white text-3xl">&times;</button></li>
       {navItems.map(item => (
         <li>
           <a href={item.url} class="hover:text-[#3296FF] transition-colors">
@@ -58,10 +61,20 @@ const navItems = [
 </nav>
 
 <script>
-    const hamburger = document.getElementById('hamburger');
-    const menu = document.getElementById('menu');
-  
-    hamburger?.addEventListener('click', () => {
-      menu?.classList.toggle('hidden');
-    });
-  </script>
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+  const closeMenu = document.getElementById('close-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar3 = document.getElementById('bar3');
+
+  function toggleMenu() {
+    menu?.classList.toggle('hidden');
+    bar1?.classList.toggle('rotate-45');
+    bar1?.classList.toggle('translate-y-2');
+    bar3?.classList.toggle('-rotate-45');
+    bar3?.classList.toggle('-translate-y-2');
+  }
+
+  hamburger?.addEventListener('click', toggleMenu);
+  closeMenu?.addEventListener('click', toggleMenu);
+</script>
