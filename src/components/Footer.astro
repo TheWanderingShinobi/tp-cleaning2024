@@ -1,57 +1,125 @@
 ---
-// Footer.astro
+import { Image } from "astro:assets";
+import myLogo from "@assets/logo.opti.webp";
 import { socialLinks, usefulLinks, serviceAreas } from '../data/site-footer-links';
 
 const currentYear = new Date().getFullYear();
-const currentYearFallback = 2024; // Fallback if date fails
 ---
 
-<footer class="bg-dark text-white py-8">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-6">
-        <h3 class="text-lg font-bold mb-2">FOLLOW US ON</h3>
-        <div class="flex justify-center space-x-4">
+<footer class="bg-secondary py-12 px-4 md:px-8">
+  <div class="container mx-auto">
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+      <!-- Col 1: About -->
+      <div class="max-w-xs">
+        <a href="/">
+          <Image
+            src={myLogo}
+            format="avif"
+            width={140}
+            height={98}
+            alt="The Professionals logo"
+            class="h-12 w-auto mb-4"
+          />
+        </a>
+        <p class="text-sm text-gray-400 leading-relaxed mb-6">
+          Professional window cleaning and eavestrough cleaning serving Toronto and the GTA. When you want a job done right, call The Professionals.
+        </p>
+
+        <!-- Contact info -->
+        <ul class="space-y-3 text-sm text-gray-400 mb-6">
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-location-dot text-accent mt-0.5 shrink-0"></i>
+            <span>1108 - 250 Consumers Rd #166, North York, ON M2J 4V6</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-envelope text-accent shrink-0"></i>
+            <a href="mailto:admin@theprofessionalswindowcleaning.com" class="hover:text-accent transition-colors break-all">
+              admin@theprofessionalswindowcleaning.com
+            </a>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fa-solid fa-phone text-accent shrink-0"></i>
+            <a href="tel:4164645542" class="hover:text-accent transition-colors">(416) 464-5542</a>
+          </li>
+        </ul>
+
+        <!-- Social icons -->
+        <div class="flex gap-4">
           {socialLinks.map(link => (
-            <a href={link.url} class="text-white hover:text-gray-300" aria-label={link.name}>
-              <i class={`fab ${link.icon} text-2xl`}></i>
+            <a
+              href={link.url}
+              aria-label={link.name}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-2xl text-gray-400 hover:text-accent transition-colors"
+            >
+              <i class={`fab ${link.icon}`}></i>
             </a>
           ))}
         </div>
       </div>
-    
-   
-    
-    <p class="text-center mb-6">
-      We provide professional window cleaning and eavestrough cleaning at an affordable price.
-    </p>
-    
-    <div class="grid md:grid-cols-4 gap-8">
+
+      <!-- Col 2: Useful Links -->
       <div>
-        <h4 class="font-bold mb-2">USEFUL LINKS</h4>
+        <h4 class="text-lg font-bold text-white mb-4">
+          <span class="inline-block border-b-2 border-accent pb-1">Useful Links</span>
+        </h4>
         <ul>
           {usefulLinks.map(link => (
-            <li><a href={link.url} class="hover:underline">{link.name}</a></li>
+            <li>
+              <a
+                href={link.url}
+                target={link.isExternal ? '_blank' : undefined}
+                rel={link.isExternal ? 'noopener noreferrer' : undefined}
+                class="block py-1 text-gray-400 hover:text-accent transition-colors"
+              >
+                {link.name}
+              </a>
+            </li>
           ))}
         </ul>
       </div>
-      {serviceAreas.map((area, index) => (
-        <div>
-          <h4 class="font-bold mb-2">SERVICE AREAS</h4>
-          <ul>
-            {area.map(city => (
-              <li>
-                <a href={city.url} class="hover:underline">
-                  {city.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+
+      <!-- Col 3: Service Areas (group 1) -->
+      <div>
+        <h4 class="text-lg font-bold text-white mb-4">
+          <span class="inline-block border-b-2 border-accent pb-1">Service Areas</span>
+        </h4>
+        <ul>
+          {serviceAreas[0].map(city => (
+            <li>
+              <a href={city.url} class="block py-1 text-gray-400 hover:text-accent transition-colors">
+                {city.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Col 4: Service Areas (groups 2 & 3) -->
+      <div>
+        <h4 class="text-lg font-bold text-white mb-4">
+          <span class="inline-block border-b-2 border-accent pb-1">More Locations</span>
+        </h4>
+        <ul>
+          {[...serviceAreas[1], ...serviceAreas[2]].map(city => (
+            <li>
+              <a href={city.url} class="block py-1 text-gray-400 hover:text-accent transition-colors">
+                {city.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
     </div>
-    
-    <div class="text-center mt-8">
-      <p>&copy; {currentYear || currentYearFallback} Copyright: The Professionals Window and Eaves Cleaning Ltd.</p>
+
+    <!-- Copyright bar -->
+    <div class="border-t border-white/10 pt-6 mt-8 text-center text-sm text-gray-500">
+      <p>&copy; {currentYear} The Professionals Window and Eaves Cleaning Ltd. All rights reserved.</p>
     </div>
+
   </div>
 </footer>

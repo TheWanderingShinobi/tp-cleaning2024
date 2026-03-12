@@ -1,181 +1,74 @@
 ---
-// Import the <Image /> component
-
 import { Image } from 'astro:assets'
 
-// Import a reference to the image itself
-
 import imgEaves from '@assets/toronto-eavestrough-cleaning.webp'
-
 import imgPower from '@assets/toronto-power-washing.webp'
-
 import imgWindow from '@assets/toronto-window-cleaning.webp'
+
+const services = [
+  {
+    title: 'Eavestrough Cleaning',
+    icon: 'fa-solid fa-droplet',
+    img: imgEaves,
+    alt: 'Before and after eavestrough cleaning',
+    description: 'Have you been noticing more leaves, dirt, and debris accumulating in your gutters? Maybe there\'s a build-up of water that can\'t seem to drain properly? Gutter cleaning is the perfect solution for clearing out all the mess and restoring your gutters to their former glory.',
+    href: '/eavestrough-cleaning',
+    label: 'Eavestrough Cleaning',
+  },
+  {
+    title: 'Power Washing',
+    icon: 'fa-solid fa-spray-can-sparkles',
+    img: imgPower,
+    alt: 'Before and after power washing',
+    description: 'Our pressure washing service is the perfect way to get your home clean and free of stains. With our experienced professionals, you\'ll get the job done quickly and efficiently, leaving your home looking its best. Combine eavestrough cleaning and a power wash to save.',
+    href: '/power-washing',
+    label: 'Power Washing',
+  },
+  {
+    title: 'Window Cleaning',
+    icon: 'fa-solid fa-window-maximize',
+    img: imgWindow,
+    alt: 'Before and after window cleaning',
+    description: 'Looking for a reliable and affordable window cleaning service? We offer a wide range of services, including regular window cleaning and spring/fall window cleaning. We also offer special discounts for job referrals. Give us a call today to schedule your free consultation.',
+    href: '/window-cleaning',
+    label: 'Window Cleaning',
+  },
+]
 ---
 
-<div>
-	<section class="mb-16 py-4 text-center text-gray-800">
-		<h2 class="text-4xl text-accent">HOW CAN WE HELP YOU TODAY?</h2>
+<section class="py-16 px-4 md:px-8">
+  <h2 class="text-3xl font-bold text-center text-white mb-12">HOW CAN WE HELP YOU TODAY?</h2>
 
-		<p class="mb-20 text-3xl font-bold text-white">Choose Your Service:</p>
-
-		<div class="grid lg:grid-cols-3 lg:gap-x-12">
-			<div class="mb-12 lg:mb-0">
-				<div class="hblock h-full rounded-lg bg-accent shadow-lg">
-					<div class="flex justify-center">
-						<div class="-mt-8 inline-block rounded-full bg-[#3296FF] p-4 shadow-lg">
-							<svg
-								style="display: inline-block; vertical-align: middle; cursor: auto;"
-								viewBox="0 0 24 24"
-								height="50"
-								width="50"
-								fill="none"
-								stroke="currentColor"
-								xmlns="http://www.w3.org/2000/svg"
-								stroke-width="1.5"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								aria-hidden="true"
-								><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" style="cursor: auto;"></path><polyline
-									points="22 4 12 14.01 9 11.01"></polyline></svg
-							>
-						</div>
-					</div>
-
-					<div class="p-6">
-						<p class="mb-4 text-lg font-semibold">Eavestrough Cleaning</p>
-
-						<div class="mb-3 mt-3 flex justify-center rounded-2xl bg-base-100">
-							<Image
-								class="h-auto max-w-full rounded-lg p-3"
-								src={imgEaves}
-								format="avif"
-								alt="before and after eavestrough cleaning"
-							/>
-						</div>
-
-						<p class="text-secondary">
-							Have you been noticing more leaves, dirt, and debris accumulating in your gutters?
-							Maybe there’s a build-up of water that can’t seem to drain properly? Gutter cleaning
-							is the perfect solution for clearing out all the mess and restoring your gutters to
-							their former glory. Let our team take care of everything for you!
-						</p>
-
-						<div class="pt-4">
-							<a
-								role="button"
-								href="eavestrough-cleaning"
-								class="btn btn-secondary btn-outline btn-wide mb-2 uppercase"
-								>eavestrough cleaning</a
-							>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="mb-12 lg:mb-0">
-				<div class="block h-full rounded-lg bg-accent shadow-lg">
-					<div class="flex justify-center">
-						<div class="-mt-8 inline-block rounded-full bg-[#3296FF] p-4 shadow-lg">
-							<svg
-								style="display: inline-block; vertical-align: middle; cursor: auto;"
-								viewBox="0 0 24 24"
-								height="50"
-								width="50"
-								fill="none"
-								stroke="currentColor"
-								xmlns="http://www.w3.org/2000/svg"
-								stroke-width="1.5"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								aria-hidden="true"
-								><path
-									d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"
-									style="cursor: auto;"></path></svg
-							>
-						</div>
-					</div>
-
-					<div class="p-6">
-						<p class="mb-4 text-lg font-semibold">Power Washing</p>
-
-						<div class="mb-3 mt-3 flex justify-center rounded-2xl bg-base-100">
-							<Image
-								class="h-auto max-w-full rounded-lg p-3"
-								src={imgPower}
-								format="avif"
-								alt="before and after power washing"
-							/>
-						</div>
-
-						<p class="text-secondary">
-							Our pressure washing service is the perfect way to get your home clean and free of
-							stains. With our experienced professionals, you’ll be able to get the job done quickly
-							and efficiently, leaving your home looking its best. Combine eavestrough cleaning and
-							a power wash to save. Contact us today to schedule a consultation!
-						</p>
-
-						<div class="pt-4">
-							<a
-								role="button"
-								href="power-washing"
-								class="btn btn-secondary btn-outline btn-wide mb-2 uppercase">Power Washing</a
-							>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="">
-				<div class="block h-full rounded-lg bg-accent shadow-lg">
-					<div class="flex justify-center">
-						<div class="-mt-8 inline-block rounded-full bg-[#3296FF] p-4 shadow-lg">
-							<svg
-								style="display: inline-block; vertical-align: middle; cursor: auto;"
-								viewBox="0 0 24 24"
-								height="50"
-								width="50"
-								fill="none"
-								stroke="currentColor"
-								xmlns="http://www.w3.org/2000/svg"
-								stroke-width="1.5"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								aria-hidden="true"
-								><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" style="cursor: auto;"></path><polyline
-									points="22 4 12 14.01 9 11.01"></polyline></svg
-							>
-						</div>
-					</div>
-
-					<div class="p-6">
-						<p class="mb-4 text-lg font-semibold">Window Cleaning</p>
-
-						<div class="mb-3 mt-3 flex justify-center rounded-2xl bg-base-100">
-							<Image
-								class="h-auto max-w-full rounded-lg p-3"
-								src={imgWindow}
-								format="avif"
-								alt="before and after window cleaning"
-							/>
-						</div>
-					</div>
-
-					<p class="text-secondary">
-						Looking for a reliable and affordable window cleaning service? Look no further than
-						ours! We offer a wide range of services, including regular window cleaning and
-						spring/fall window cleaning. We also offer special discounts for job referrals!. Give us
-						a call today to schedule your free consultation.
-					</p>
-
-					<div class="pt-4">
-						<a
-							role="button"
-							href="window-cleaning"
-							class="btn btn-secondary btn-outline btn-wide mb-2 uppercase">Window Cleaning</a
-						>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-</div>
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    {services.map(service => (
+      <div class="card bg-base-200 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+        <figure>
+          <Image
+            src={service.img}
+            format="avif"
+            alt={service.alt}
+            width={600}
+            height={224}
+            class="h-56 w-full object-cover"
+          />
+        </figure>
+        <div class="card-body p-6 flex flex-col">
+          <i class={`${service.icon} text-primary text-3xl mb-3`}></i>
+          <h3 class="card-title text-lg font-bold text-primary mb-2">{service.title}</h3>
+          <p class="text-base leading-relaxed opacity-80 text-primary line-clamp-4 flex-1">
+            {service.description}
+          </p>
+          <div class="mt-6">
+            <a
+              role="button"
+              href={service.href}
+              class="btn btn-accent rounded-full uppercase tracking-wide font-semibold"
+            >
+              {service.label}
+            </a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
