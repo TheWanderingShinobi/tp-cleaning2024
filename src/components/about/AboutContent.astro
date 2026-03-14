@@ -1,0 +1,134 @@
+---
+import { Image } from 'astro:assets';
+import companyLogo from '../../assets/scarborough-eavestrough-cleaning-logo.webp';
+
+const values = [
+  {
+    icon:  'fa-solid fa-handshake',
+    title: 'Honest & Transparent',
+    text:  'No hidden fees, no surprise charges. We assess your property and give you a clear, upfront quote before any work begins.',
+  },
+  {
+    icon:  'fa-solid fa-broom',
+    title: 'Thorough & Detail-Oriented',
+    text:  'We don\'t rush. Every gutter is flushed, every window is inspected, and we clean up after ourselves — leaving your property spotless.',
+  },
+  {
+    icon:  'fa-solid fa-users',
+    title: 'Small Team, Big Standards',
+    text:  'With a tight-knit crew, we maintain consistent quality on every job. You\'ll see familiar faces who know their craft and care about results.',
+  },
+  {
+    icon:  'fa-solid fa-map-marked-alt',
+    title: 'Proudly Local',
+    text:  'We live and work in the GTA. We know the neighborhoods, the weather, and the challenges that come with maintaining homes in this area.',
+  },
+];
+
+const stats = [
+  { number: '10+',  label: 'Years in Business' },
+  { number: '1000+', label: 'Jobs Completed'   },
+  { number: '12+',  label: 'Cities Served'     },
+  { number: '5★',   label: 'Google Rating'     },
+];
+
+const cities = [
+  { name: 'Toronto',       url: '/toronto-window-cleaning'            },
+  { name: 'North York',    url: '/north-york-window-cleaning'         },
+  { name: 'Scarborough',   url: '/eavestrough-cleaning-scarborough'   },
+  { name: 'Etobicoke',     url: '/etobicoke-eavestrough-cleaning'     },
+  { name: 'Markham',       url: '/window-cleaning-markham'            },
+  { name: 'Richmond Hill', url: '/eavestrough-cleaning-richmond-hill' },
+  { name: 'Vaughan',       url: '/window-cleaning-vaughan'            },
+  { name: 'Mississauga',   url: '/mississauga-window-cleaning'        },
+  { name: 'Pickering',     url: '/eavestrough-cleaning-pickering'     },
+  { name: 'Ajax',          url: '/eavestrough-cleaning-ajax'          },
+  { name: 'Thornhill',     url: '/window-cleaning-thornhill'          },
+  { name: 'Brampton',      url: '/brampton-window-cleaning'           },
+];
+---
+
+<!-- SECTION 1: Our Story -->
+<section class="py-16 px-4 md:px-8">
+  <div class="max-w-6xl mx-auto flex flex-col items-center gap-12 md:flex-row">
+
+    <!-- Logo -->
+    <div class="md:w-1/2 flex justify-center shrink-0">
+      <Image
+        src={companyLogo}
+        format="avif"
+        width={256}
+        height={256}
+        alt="The Professionals company logo"
+        class="w-64 h-auto"
+      />
+    </div>
+
+    <!-- Text -->
+    <div class="md:w-1/2">
+      <p class="text-accent text-sm uppercase tracking-widest font-semibold mb-2">Our Story</p>
+      <h2 class="text-3xl font-bold text-white mb-6">Over a Decade of Trusted Service</h2>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        The Professionals Window and Eaves Cleaning Ltd. was founded with one simple belief: homeowners deserve honest, high-quality service at a fair price. For over 10 years, we've been serving families across the Greater Toronto Area — from Scarborough to Mississauga, North York to Brampton.
+      </p>
+      <p class="text-gray-300 leading-relaxed">
+        What started as a small operation has grown into a trusted team of 4–6 dedicated professionals who take pride in every job. We're not a faceless franchise — we're a local company that treats every home like our own. Our motto says it all: when you want a job done right, call The Professionals.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 2: Our Values -->
+<section class="py-16 px-4 md:px-8 bg-secondary/50">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center text-white mb-12">What Sets Us Apart</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {values.map(v => (
+        <div class="bg-secondary rounded-2xl p-8 flex gap-4 items-start">
+          <i class={`${v.icon} text-accent text-3xl mt-1 shrink-0`}></i>
+          <div>
+            <h3 class="font-bold text-white text-lg mb-2">{v.title}</h3>
+            <p class="text-gray-400">{v.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: By the Numbers -->
+<section class="py-16 px-4 md:px-8">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center text-white mb-12">The Professionals at a Glance</h2>
+
+    <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+      {stats.map(s => (
+        <div class="text-center">
+          <p class="text-5xl font-extrabold text-accent mb-1">{s.number}</p>
+          <p class="text-gray-400 text-sm uppercase tracking-wide">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: Service Areas -->
+<section class="py-16 px-4 md:px-8 bg-secondary/50">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center text-white mb-4">Serving the Greater Toronto Area</h2>
+    <p class="text-gray-400 text-center mb-10">We bring professional cleaning services to your neighborhood</p>
+
+    <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+      {cities.map(city => (
+        <a
+          href={city.url}
+          class="bg-secondary px-5 py-2 rounded-full text-gray-300 hover:bg-accent hover:text-primary transition-colors font-medium"
+        >
+          {city.name}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
