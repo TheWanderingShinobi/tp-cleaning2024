@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import FaqSection from "../components/home/FaqSection.astro";
-import DiscountSection from "../components/home/DiscountSection.astro";
-import CallNow from "../components/CallNow.astro";
-import ContactUs from "../components/ContactUs.astro";
 import HeroServices from "../components/services/HeroServices.astro";
+import ServicesOverview from "../components/services/ServicesOverview.astro";
+import Testimonals from "../components/Testimonals.astro";
+import ContactUs from "../components/ContactUs.astro";
+import DiscountSection from "../components/home/DiscountSection.astro";
 ---
 
 <Layout
@@ -13,9 +13,9 @@ import HeroServices from "../components/services/HeroServices.astro";
 >
     <main>
         <HeroServices />
-        <CallNow />
+        <ServicesOverview />
+        <Testimonals />
         <ContactUs />
-        <FaqSection />
         <DiscountSection />
     </main>
 </Layout>

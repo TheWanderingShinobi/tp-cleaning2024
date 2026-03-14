@@ -1,0 +1,110 @@
+---
+import { Image } from 'astro:assets';
+import imgEaves  from '../../assets/toronto-eavestrough-cleaning.webp';
+import imgWindow from '../../assets/toronto-window-cleaning.webp';
+import imgPower  from '../../assets/toronto-power-washing.webp';
+
+const services = [
+  {
+    icon:        'fa-solid fa-droplet',
+    title:       'Eavestrough Cleaning',
+    description: 'Clogged gutters can cause water damage, foundation issues, and costly repairs. Our team thoroughly cleans and flushes your eavestrough system, removing leaves, dirt, and debris to restore proper drainage. We inspect for damage and ensure your gutters are working as they should.',
+    bullets:     ['Complete debris removal', 'Downspout flushing', 'Damage inspection', 'Before & after photos'],
+    href:        '/eavestrough-cleaning',
+    img:         imgEaves,
+    alt:         'Eavestrough cleaning service',
+    reverse:     false,
+  },
+  {
+    icon:        'fa-solid fa-window-maximize',
+    title:       'Window Cleaning',
+    description: 'Crystal-clear windows transform the look of your home. Our professional team uses streak-free techniques to clean your exterior windows, leaving them sparkling. We handle all window types and heights safely and efficiently.',
+    bullets:     ['Exterior window cleaning', 'Streak-free finish', 'Screen cleaning available', 'Safe ladder and equipment use'],
+    href:        '/window-cleaning',
+    img:         imgWindow,
+    alt:         'Window cleaning service',
+    reverse:     true,
+  },
+  {
+    icon:        'fa-solid fa-spray-can-sparkles',
+    title:       'Power Washing',
+    description: 'Restore your home\'s exterior to like-new condition. Our power washing service removes years of dirt, grime, mold, and stains from driveways, walkways, siding, and decks. Combine with eavestrough cleaning for the best value.',
+    bullets:     ['Driveways & walkways', 'Siding & brick', 'Decks & patios', 'Bundle discounts available'],
+    href:        '/power-washing',
+    img:         imgPower,
+    alt:         'Power washing service',
+    reverse:     false,
+  },
+];
+
+const whyUs = [
+  { icon: 'fa-solid fa-star',          stat: '5-Star Rated',  label: 'Google Reviews'       },
+  { icon: 'fa-solid fa-shield-halved', stat: 'Fully Insured', label: 'Licensed & Protected' },
+  { icon: 'fa-solid fa-clock',         stat: 'Same-Week',     label: 'Booking Available'     },
+  { icon: 'fa-solid fa-tags',          stat: 'Fair Pricing',  label: 'No Hidden Fees'        },
+];
+---
+
+<section class="py-16 px-4 md:px-8">
+  <div class="container mx-auto">
+
+    <h2 class="text-3xl font-bold text-center text-white md:text-4xl mb-4">What We Offer</h2>
+    <p class="text-gray-400 text-center mb-12">Professional cleaning services across the Greater Toronto Area</p>
+
+    <!-- Service feature cards -->
+    <div class="flex flex-col gap-16">
+      {services.map(service => (
+        <div class={`flex flex-col items-center gap-0 bg-secondary rounded-2xl shadow-lg overflow-hidden ${service.reverse ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+
+          <!-- Image side -->
+          <div class="w-full md:w-1/2 shrink-0">
+            <Image
+              src={service.img}
+              format="avif"
+              alt={service.alt}
+              width={800}
+              height={384}
+              class="w-full h-72 md:h-96 object-cover"
+            />
+          </div>
+
+          <!-- Text side -->
+          <div class="w-full md:w-1/2 p-8">
+            <i class={`${service.icon} text-accent text-3xl mb-3 block`}></i>
+            <h3 class="text-2xl font-bold text-white mb-4">{service.title}</h3>
+            <p class="text-gray-300 leading-relaxed">{service.description}</p>
+
+            <ul class="flex flex-col gap-2 mt-4">
+              {service.bullets.map(bullet => (
+                <li class="flex items-center text-gray-300">
+                  <i class="fa-solid fa-check text-accent mr-2 shrink-0"></i>
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+
+            <a href={service.href} class="btn btn-accent rounded-full mt-6 font-bold uppercase tracking-wide">
+              Learn More
+            </a>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+    <!-- Why Choose Us strip -->
+    <div class="bg-secondary rounded-2xl p-8 mt-16">
+      <h3 class="text-xl font-bold text-center text-white mb-8">Why Choose The Professionals?</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {whyUs.map(item => (
+          <div>
+            <i class={`${item.icon} text-4xl text-accent mb-2 block`}></i>
+            <p class="font-bold text-white text-lg">{item.stat}</p>
+            <p class="text-sm text-gray-400">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
