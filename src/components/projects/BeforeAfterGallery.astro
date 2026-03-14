@@ -1,0 +1,76 @@
+---
+import { getImage } from 'astro:assets';
+
+import eavBefore1 from '../../assets/eavestrough-cleaning-before-1.webp';
+import eavAfter1  from '../../assets/eavestrough-cleaning-after-1.webp';
+import eavBefore2 from '../../assets/eavestrough-cleaning-before-2.webp';
+import eavAfter2  from '../../assets/eavestrough-cleaning-after-2.webp';
+import pwBefore1  from '../../assets/power-washing-before-1.webp';
+import pwAfter1   from '../../assets/power-washing-after-1.webp';
+import pwBefore2  from '../../assets/power-washing-before-2.webp';
+import pwAfter2   from '../../assets/power-washing-after-2.webp';
+import winBefore1 from '../../assets/window-cleaning-before-1.webp';
+import winAfter1  from '../../assets/window-cleaning-after-1.webp';
+import winBefore2 from '../../assets/window-cleaning-before-2.webp';
+import winAfter2  from '../../assets/window-cleaning-after-2.webp';
+
+const rawProjects = [
+  { before: eavBefore1, after: eavAfter1, service: 'Eavestrough Cleaning', location: 'Scarborough, ON' },
+  { before: eavBefore2, after: eavAfter2, service: 'Eavestrough Cleaning', location: 'North York, ON'  },
+  { before: pwBefore1,  after: pwAfter1,  service: 'Power Washing',        location: 'Etobicoke, ON'   },
+  { before: pwBefore2,  after: pwAfter2,  service: 'Power Washing',        location: 'Toronto, ON'     },
+  { before: winBefore1, after: winAfter1, service: 'Window Cleaning',      location: 'Markham, ON'     },
+  { before: winBefore2, after: winAfter2, service: 'Window Cleaning',      location: 'Mississauga, ON' },
+];
+
+const projects = await Promise.all(
+  rawProjects.map(async ({ before, after, service, location }) => {
+    const beforeImg = await getImage({ src: before, width: 600, height: 400, format: 'avif', fit: 'cover' });
+    const afterImg  = await getImage({ src: after,  width: 600, height: 400, format: 'avif', fit: 'cover' });
+    return { beforeSrc: beforeImg.src, afterSrc: afterImg.src, service, location };
+  })
+);
+---
+
+<section class="py-16 px-4 md:px-8">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center text-white mb-4">Before &amp; After</h2>
+    <p class="text-gray-400 text-center mb-12">See the difference The Professionals make</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map(project => (
+        <div class="card bg-secondary rounded-2xl shadow-lg overflow-hidden">
+
+          <div class="grid grid-cols-2">
+            <div class="relative">
+              <img
+                src={project.beforeSrc}
+                alt={`Before ${project.service}`}
+                class="w-full h-48 object-cover"
+              />
+              <span class="absolute top-2 left-2 bg-primary/80 text-white text-xs uppercase px-3 py-1 rounded-full">
+                Before
+              </span>
+            </div>
+            <div class="relative">
+              <img
+                src={project.afterSrc}
+                alt={`After ${project.service}`}
+                class="w-full h-48 object-cover"
+              />
+              <span class="absolute top-2 right-2 bg-accent/90 text-primary text-xs uppercase px-3 py-1 rounded-full font-semibold">
+                After
+              </span>
+            </div>
+          </div>
+
+          <div class="p-4 flex items-center justify-between">
+            <span class="badge badge-accent badge-sm font-semibold">{project.service}</span>
+            <span class="text-sm text-gray-400">{project.location}</span>
+          </div>
+
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

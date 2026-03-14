@@ -1,0 +1,129 @@
+---
+import { getImage } from 'astro:assets';
+
+import img1  from '../../assets/project-1.opti.webp';
+import img2  from '../../assets/project-2.opti.webp';
+import img3  from '../../assets/project-3.opti.webp';
+import img4  from '../../assets/project-4.opti.webp';
+import img5  from '../../assets/project-5.opti.webp';
+import img6  from '../../assets/project-6.opti.webp';
+import img7  from '../../assets/project-7.opti.webp';
+import img8  from '../../assets/project-8.opti.webp';
+import img9  from '../../assets/project-9.opti.webp';
+import img10 from '../../assets/project-10.opti.webp';
+import img11 from '../../assets/project-11.opti.webp';
+import img12 from '../../assets/project-12.opti.webp';
+
+const rawPhotos = [
+  { img: img1,  alt: 'Window cleaning project 1'     },
+  { img: img2,  alt: 'Eavestrough cleaning project 2' },
+  { img: img3,  alt: 'Power washing project 3'        },
+  { img: img4,  alt: 'Window cleaning project 4'      },
+  { img: img5,  alt: 'Eavestrough cleaning project 5' },
+  { img: img6,  alt: 'Window cleaning project 6'      },
+  { img: img7,  alt: 'Power washing project 7'        },
+  { img: img8,  alt: 'Window cleaning project 8'      },
+  { img: img9,  alt: 'Eavestrough cleaning project 9' },
+  { img: img10, alt: 'Window cleaning project 10'     },
+  { img: img11, alt: 'Power washing project 11'       },
+  { img: img12, alt: 'Window cleaning project 12'     },
+];
+
+const photos = await Promise.all(
+  rawPhotos.map(async ({ img, alt }) => {
+    const thumb = await getImage({ src: img, width: 400, height: 400, format: 'avif', fit: 'cover' });
+    const full  = await getImage({ src: img, width: 1200, format: 'avif' });
+    return { thumbSrc: thumb.src, fullSrc: full.src, alt };
+  })
+);
+---
+
+<section class="py-16 px-4 md:px-8">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center text-white mb-4">Our Work</h2>
+    <p class="text-gray-400 text-center mb-12">Browse our recent projects across the GTA</p>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {photos.map((photo, i) => (
+        <button
+          class="photo-thumb rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300 shadow-md aspect-square w-full block"
+          data-src={photo.fullSrc}
+          data-alt={photo.alt}
+          aria-label={`Open ${photo.alt}`}
+        >
+          <img
+            src={photo.thumbSrc}
+            alt={photo.alt}
+            class="w-full h-full object-cover"
+            loading={i < 4 ? 'eager' : 'lazy'}
+          />
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox overlay -->
+<div
+  id="lightbox"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image lightbox"
+>
+  <div id="lightbox-backdrop" class="absolute inset-0"></div>
+
+  <div class="relative z-10 flex items-center justify-center">
+    <img
+      id="lightbox-img"
+      src=""
+      alt=""
+      class="max-w-4xl max-h-[85vh] w-full object-contain rounded-xl shadow-2xl"
+    />
+  </div>
+
+  <button
+    id="lightbox-close"
+    class="absolute top-4 right-4 z-10 text-white hover:text-accent transition-colors"
+    aria-label="Close lightbox"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+</div>
+
+<script>
+  const lightbox     = document.getElementById('lightbox');
+  const lightboxImg  = document.getElementById('lightbox-img') as HTMLImageElement | null;
+  const lightboxClose    = document.getElementById('lightbox-close');
+  const lightboxBackdrop = document.getElementById('lightbox-backdrop');
+  const thumbs = document.querySelectorAll<HTMLElement>('.photo-thumb');
+
+  function openLightbox(src: string, alt: string) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightbox || !lightboxImg) return;
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    lightboxImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      openLightbox(thumb.dataset.src ?? '', thumb.dataset.alt ?? '');
+    });
+  });
+
+  lightboxClose?.addEventListener('click', closeLightbox);
+  lightboxBackdrop?.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
