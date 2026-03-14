@@ -3,7 +3,7 @@ import { Image } from "astro:assets"
 import imgContact from "@assets/scarborough-eavestrough-cleaning-logo.webp"
 ---
 
-<section class="py-16 px-4 overflow-hidden">
+<section class="py-16 px-4 overflow-hidden overflow-x-hidden">
   <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-start">
 
     <!-- Left: Form -->
@@ -70,7 +70,7 @@ import imgContact from "@assets/scarborough-eavestrough-cleaning-logo.webp"
     </div>
 
     <!-- Right: Logo + contact info -->
-    <div class="flex flex-col items-center lg:items-start gap-6 text-gray-300">
+    <div class="flex flex-col items-center lg:items-start gap-6 text-gray-300 overflow-hidden">
       <div class="flex justify-center w-full">
         <Image
           src={imgContact}
@@ -82,7 +82,7 @@ import imgContact from "@assets/scarborough-eavestrough-cleaning-logo.webp"
         />
       </div>
 
-      <p class="text-gray-300 leading-relaxed text-center lg:text-left">
+      <p class="text-gray-300 leading-relaxed text-center lg:text-left overflow-hidden break-words">
         At The Professionals Window and Eaves Cleaning Ltd., we pride ourselves on providing
         high-quality cleaning services that our clients can trust. Our motto: <em>"When you want a
         job done right, call The Professionals."</em> Get in touch today to learn more.
@@ -99,7 +99,7 @@ import imgContact from "@assets/scarborough-eavestrough-cleaning-logo.webp"
           1108 - 250 Consumers Rd Mailbox: #166, North York, ON M2J 4V6
         </p>
 
-        <p class="flex items-center gap-3">
+        <p class="flex items-center gap-3 break-all">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 shrink-0 text-accent">
             <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"></path>
             <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"></path>
