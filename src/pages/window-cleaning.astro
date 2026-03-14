@@ -1,23 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import FaqSection from "../components/home/FaqSection.astro";
-import DiscountSection from "../components/home/DiscountSection.astro";
-import CallNow from "../components/CallNow.astro";
-import ContactUs from "../components/ContactUs.astro";
 import HeroWindows from "../components/services/HeroWindows.astro";
 import ParaWindows from "../components/services/ParaWindows.astro";
+import Testimonals from "../components/Testimonals.astro";
+import ContactUs from "../components/ContactUs.astro";
+import DiscountSection from "../components/home/DiscountSection.astro";
 ---
 
 <Layout
-    title="Window Cleaning Professionals"
-    description="The Professionals Window and Eaves Cleaning Ltd. - Professional Window Cleaning or Eavestrough Cleaning Service - Call  Today"
+  title="Window Cleaning Professionals"
+  description="The Professionals Window and Eaves Cleaning Ltd. - Professional Window Cleaning or Eavestrough Cleaning Service - Call Today"
 >
-    <main>
-        <HeroWindows />
-        <CallNow />
-        <ContactUs />
-        <ParaWindows />
-        <FaqSection />
-        <DiscountSection />
-    </main>
+  <main>
+    <HeroWindows />
+    <ParaWindows />
+    <Testimonals />
+    <ContactUs />
+    <DiscountSection />
+  </main>
 </Layout>

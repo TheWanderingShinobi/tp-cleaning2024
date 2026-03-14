@@ -1,13 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import FaqSection from "../components/home/FaqSection.astro";
-import DiscountSection from "../components/home/DiscountSection.astro";
-import CallNow from "../components/CallNow.astro";
 import HeroPickeringE from "../components/pickering/HeroPickeringE.astro";
-import ContactUs from "../components/ContactUs.astro";
 import ParaOnePickering from "../components/pickering/ParaOnePickering.astro";
----
-
+import Testimonals from "../components/Testimonals.astro";
+import ContactUs from "../components/ContactUs.astro";
+import DiscountSection from "../components/home/DiscountSection.astro";
 ---
 
 <Layout
@@ -16,10 +13,9 @@ import ParaOnePickering from "../components/pickering/ParaOnePickering.astro";
 >
   <main>
     <HeroPickeringE />
-    <CallNow />
-    <ContactUs />
     <ParaOnePickering />
-    <FaqSection />
+    <Testimonals />
+    <ContactUs />
     <DiscountSection />
   </main>
 </Layout>

@@ -1,13 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeroNorthYorkW from "../components/north-york/HeroNorthYorkW.astro";
-import FaqSection from "../components/home/FaqSection.astro";
-import DiscountSection from "../components/home/DiscountSection.astro";
-import CallNow from "../components/CallNow.astro";
-import ContactUs from "../components/ContactUs.astro";
 import ParaNorthYorkW from "../components/north-york/ParaNorthYorkW.astro";
----
-
+import Testimonals from "../components/Testimonals.astro";
+import ContactUs from "../components/ContactUs.astro";
+import DiscountSection from "../components/home/DiscountSection.astro";
 ---
 
 <Layout
@@ -16,10 +13,9 @@ import ParaNorthYorkW from "../components/north-york/ParaNorthYorkW.astro";
 >
   <main>
     <HeroNorthYorkW />
-    <CallNow />
-    <ContactUs />
     <ParaNorthYorkW />
-    <FaqSection />
+    <Testimonals />
+    <ContactUs />
     <DiscountSection />
   </main>
 </Layout>
