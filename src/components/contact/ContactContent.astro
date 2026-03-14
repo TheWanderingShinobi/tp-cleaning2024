@@ -1,0 +1,167 @@
+---
+const socials = [
+  { icon: 'fa-facebook-f',  href: 'https://www.facebook.com/theprofessionalswindows',              label: 'Facebook'  },
+  { icon: 'fa-instagram',   href: 'https://www.instagram.com/theprofessionalswindows/',             label: 'Instagram' },
+  { icon: 'fa-tiktok',      href: 'https://www.tiktok.com/@theproswindowcleaningltd',              label: 'TikTok'    },
+  { icon: 'fa-youtube',     href: 'https://www.youtube.com/channel/UCNetkzM6u3Xeh97Udv5gz0g',     label: 'YouTube'   },
+];
+---
+
+<!-- SECTION 1: Contact Info + Form -->
+<section class="py-16 px-4 md:px-8">
+  <div class="max-w-6xl mx-auto flex flex-col gap-12 md:flex-row">
+
+    <!-- LEFT: Contact information -->
+    <div class="md:w-5/12 shrink-0">
+      <p class="text-accent text-sm uppercase tracking-widest font-semibold mb-2">Get in Touch</p>
+      <h2 class="text-3xl font-bold text-white mb-6">We'd Love to Hear From You</h2>
+      <p class="text-gray-400 leading-relaxed mb-8">
+        Whether you need a quote, have a question, or want to book a service — reach out and we'll get back to you promptly.
+      </p>
+
+      <!-- Contact details -->
+      <div class="flex flex-col gap-6">
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-phone text-accent text-lg"></i>
+          </div>
+          <div>
+            <p class="text-sm text-gray-500 uppercase tracking-wide mb-1">Phone</p>
+            <a href="tel:4164645542" class="text-white text-lg font-semibold hover:text-accent transition-colors">
+              (416) 464-5542
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-envelope text-accent text-lg"></i>
+          </div>
+          <div>
+            <p class="text-sm text-gray-500 uppercase tracking-wide mb-1">Email</p>
+            <a href="mailto:admin@theprofessionalswindowcleaning.com" class="text-white hover:text-accent transition-colors break-all">
+              admin@theprofessionalswindowcleaning.com
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-location-dot text-accent text-lg"></i>
+          </div>
+          <div>
+            <p class="text-sm text-gray-500 uppercase tracking-wide mb-1">Address</p>
+            <p class="text-gray-300">1108 - 250 Consumers Rd #166<br />North York, ON M2J 4V6</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-clock text-accent text-lg"></i>
+          </div>
+          <div>
+            <p class="text-sm text-gray-500 uppercase tracking-wide mb-1">Business Hours</p>
+            <p class="text-gray-300">Mon–Sat: 8:00 AM – 6:00 PM</p>
+            <p class="text-gray-400">Sunday: Closed</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Social icons -->
+      <div class="flex gap-4 mt-8">
+        {socials.map(s => (
+          <a
+            href={s.href}
+            aria-label={s.label}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent hover:bg-accent hover:text-primary transition-colors"
+          >
+            <i class={`fab ${s.icon}`}></i>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- RIGHT: Contact form -->
+    <div class="md:w-7/12">
+      <div class="bg-secondary rounded-2xl shadow-lg p-8">
+        <h3 class="text-2xl font-bold text-white mb-6">Request a Free Quote</h3>
+
+        <form method="POST" action="https://api.web3forms.com/submit">
+          <input type="hidden" name="access_key" value="a4e44ece-4a17-415f-84a1-73716b35b94a" />
+          <input type="checkbox" name="botcheck" style="display:none" />
+
+          <!-- Row 1: Name + Phone -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label for="nameFull" class="block text-sm font-semibold text-gray-300 mb-1">Full Name</label>
+              <input type="text" id="nameFull" name="nameFull" placeholder="Full Name" required
+                class="input input-bordered w-full bg-primary text-white focus:border-accent" />
+            </div>
+            <div>
+              <label for="telephone" class="block text-sm font-semibold text-gray-300 mb-1">Telephone</label>
+              <input type="tel" id="telephone" name="telephone" placeholder="Telephone" required
+                class="input input-bordered w-full bg-primary text-white focus:border-accent" />
+            </div>
+          </div>
+
+          <!-- Row 2: Email -->
+          <div class="mb-4">
+            <label for="email" class="block text-sm font-semibold text-gray-300 mb-1">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" required
+              class="input input-bordered w-full bg-primary text-white focus:border-accent" />
+          </div>
+
+          <!-- Row 3: Service dropdown -->
+          <div class="mb-4">
+            <label for="service" class="block text-sm font-semibold text-gray-300 mb-1">Service</label>
+            <select id="service" name="service"
+              class="select select-bordered w-full bg-primary text-white focus:border-accent">
+              <option value="" disabled selected>Select a Service</option>
+              <option value="Eavestrough Cleaning">Eavestrough Cleaning</option>
+              <option value="Window Cleaning">Window Cleaning</option>
+              <option value="Power Washing">Power Washing</option>
+              <option value="Multiple Services">Multiple Services</option>
+            </select>
+          </div>
+
+          <!-- Row 4: Message -->
+          <div class="mb-4">
+            <label for="message" class="block text-sm font-semibold text-gray-300 mb-1">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project…" required
+              class="textarea textarea-bordered w-full bg-primary text-white focus:border-accent min-h-[140px]"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-accent rounded-full w-full text-lg font-bold uppercase tracking-wide mt-4">
+            Send Message
+          </button>
+          <p class="text-gray-500 text-sm text-center mt-3">
+            We typically respond within 2–4 hours during business hours.
+          </p>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 2: Map -->
+<section class="py-8 px-4 md:px-8">
+  <div class="container mx-auto">
+    <h2 class="text-2xl font-bold text-center text-white mb-6">Find Us</h2>
+    <div class="rounded-2xl overflow-hidden shadow-lg max-w-4xl mx-auto">
+      <iframe
+        title="The Professionals Window Cleaning location"
+        src="https://maps.google.com/maps?q=The+Professionals+Window+%26+Eaves+Cleaning+Ltd&t=&z=14&ie=UTF8&iwloc=&output=embed"
+        width="100%"
+        height="320"
+        style="border:0;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</section>
