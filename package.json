@@ -16,7 +16,6 @@
     "@astrojs/check": "^0.9.6",
     "@astrojs/partytown": "^2.1.4",
     "@astrojs/sitemap": "^3.7.0",
-    "@astrojs/tailwind": "^6.0.2",
     "@fontsource/nunito": "^5.0.17",
     "@fortawesome/fontawesome-free": "^6.5.2",
     "astro": "^5.18.0",
@@ -31,6 +30,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.5.4",
     "daisyui": "^3.9.4"
   }
 }
