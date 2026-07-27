@@ -1,0 +1,11 @@
+/*
+ * Tailwind entry point.
+ * Previously injected automatically by @astrojs/tailwind (applyBaseStyles).
+ * After detaching that (EOL) integration, these directives are what pull in
+ * Tailwind base/components/utilities — plus the daisyUI and typography plugins
+ * registered in tailwind.config.mjs. Imported once in Layout.astro so it covers
+ * every page.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

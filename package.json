@@ -2,6 +2,9 @@
   "name": "tp-cleaning2024",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,13 +13,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.6",
+    "@astrojs/check": "^0.9.9",
     "@astrojs/partytown": "^2.1.4",
-    "@astrojs/sitemap": "^3.7.0",
-    "@astrojs/tailwind": "^6.0.2",
+    "@astrojs/sitemap": "^3.7.3",
     "@fontsource/nunito": "^5.0.17",
     "@fortawesome/fontawesome-free": "^6.5.2",
-    "astro": "^5.18.0",
+    "astro": "^7.1.3",
     "astro-critters": "^2.0.11",
     "astro-robots-txt": "^1.0.0",
     "prettier": "^3.2.4",
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.5.4",
     "daisyui": "^3.9.4"
   }
 }
